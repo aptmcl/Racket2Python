@@ -1,6 +1,6 @@
 #lang racket
 
-(provide python python-statement python-expression)
+(provide python python-str python-statement python-expression)
 
 (define-syntax (defmodel stx)
   (syntax-case stx ()
@@ -899,3 +899,9 @@
     (python
      (with-input-from-string str read))
     (newline)))
+
+(define (python-str rkt)
+  (let ((so (open-output-string)))
+    (parameterize ((current-output-port so))
+      (python rkt))
+    (get-output-string so)))
