@@ -320,7 +320,9 @@
           (printf "elif ")
           (python-expression test)
           (printf ":~%")
-          (python-statements stmts (+ indent 4) return?)))))
+          (python-statements stmts (+ indent 4) return?))
+         (`...
+          (printf "...")))))
     (`(begin ,stmt . ,stmts)
      (python-statement stmt indent)
      (newline)
