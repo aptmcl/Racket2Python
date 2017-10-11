@@ -135,6 +135,7 @@
               (else
                (let ((replacements
                       '(#;("-p" "np")
+                        ("=" "equal_")
                         ("+p" "pp")
                         ("<-" "_from_")
                         ("?" "P")
