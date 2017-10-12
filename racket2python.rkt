@@ -105,6 +105,7 @@
                     (-vx . -vx)
                     (-vy . -vy)
                     (-vz . -vz)
+                    (? . ?)
                     (intermediate-point . intermediate_loc)
                     (loc-from-o-n . loc_from_o_vz)
                     (surface . surface_from)
@@ -532,7 +533,9 @@
   (display ")"))
 
 (define (python-expression e [precedence 0])
-  (define (rec e) (python-expression e precedence))
+  (define (rec e)
+    (parameterize ((break-line? #f))
+      (python-expression e precedence)))
   (match e
     (`(error ',name ,str . ,args)
      (rec `(error (format ,(string-append "~A: " str) ,(python-name name) . ,args))))
