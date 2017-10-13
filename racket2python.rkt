@@ -83,6 +83,7 @@
                     (string-length . len)
                     (string% . %)
                     (expt . pow)
+                    (define . def)
                     (%com-omit . None)
                     (truncate . trunc)
                     (ceiling . ceil)
