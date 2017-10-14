@@ -84,6 +84,7 @@
                     (string% . %)
                     (expt . pow)
                     (define . def)
+                    (if . if)
                     (%com-omit . None)
                     (truncate . trunc)
                     (ceiling . ceil)
