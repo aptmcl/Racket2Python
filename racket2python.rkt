@@ -81,9 +81,11 @@
 (define renamed-variables
   (make-parameter '((immediate-mode? . immediate_mode)
                     (string-length . len)
+                    (string-append . +)
                     (string% . %)
                     (expt . pow)
                     (define . def)
+                    (= . ==)
                     (set! . =)
                     (if . if)
                     (%com-omit . None)
