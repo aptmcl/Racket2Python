@@ -125,7 +125,9 @@
 (define (python-name name)
   (or (dict-ref (renamed-variables) name #f)
       (let ((str (symbol->string name)))
-        (cond ((char=? (string-ref str 0) #\%)
+        (cond ((char=? (string-ref str 0) #\_) ;This is from scribble
+               (substring str 1))
+              ((char=? (string-ref str 0) #\%)
                (string-append
                 "rh."
                 (string-replace
