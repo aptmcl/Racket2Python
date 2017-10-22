@@ -447,6 +447,7 @@
             ((bit-xor) . 7)
             ((bit-and) . 8)
             ((shiftl shiftr) . 9)
+            ((+) . 9.5) ;To deal with 1-(2+3)
             ((+ -) . 10)
             ((*) . 10.5) ;To deal with 1/(2*3)
             ((* / // %) . 11)
