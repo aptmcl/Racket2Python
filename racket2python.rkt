@@ -217,7 +217,6 @@
           (renamed-variable new-var)
           new-var))))
 
-(provide include-return?)
 (define include-return? (make-parameter #t))
 
 (define (python-statement stmt [indent 0] [return? #f])
@@ -918,8 +917,9 @@
      (with-input-from-string str read))
     (newline)))
 
-(define (python-str rkt)
+(define (python-str rkt #:return? [return? #t])
   (let ((so (open-output-string)))
-    (parameterize ((current-output-port so))
+    (parameterize ((current-output-port so)
+                   (include-return? return?))
       (python rkt))
     (get-output-string so)))
