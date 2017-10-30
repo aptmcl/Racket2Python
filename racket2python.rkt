@@ -217,6 +217,9 @@
           (renamed-variable new-var)
           new-var))))
 
+(provide include-return?)
+(define include-return? (make-parameter #t))
+
 (define (python-statement stmt [indent 0] [return? #f])
   (match stmt
     (`(void) (void))
@@ -233,7 +236,7 @@
                 (python-parameters params))))
        (printf "):~%")
        (parameterize ((locals (append (locals) params)))
-         (python-statements body (+ indent 4) #t)))
+         (python-statements body (+ indent 4) (include-return?))))
      #;(newline))
     ((or `(define ,name ,init)
          `(define ,name : ,_ ,init))
